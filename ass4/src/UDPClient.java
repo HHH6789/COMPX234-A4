@@ -14,6 +14,15 @@ public class UDPClient{
     // 套接字操作的初始超时时间（毫秒）
     private static final int INITIAL_TIMEOUT = 1000; 
 
+    // Maximum size of each file block to be transferred
+    // 每个文件块传输的最大大小
+    private static final int MAX_BLOCK_SIZE = 1000;
+
+    // Main method to start the UDP client
+    // 主方法，启动UDP客户端
+    public static void main(String[] args){
+        
+    }
 
 }
 
