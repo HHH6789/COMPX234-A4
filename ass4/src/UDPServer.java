@@ -180,7 +180,9 @@ public class UDPServer {
                 // File transfer loop
                 // 文件传输循环
                 while (true){
-                    
+                    // Create a DatagramPacket to store incoming data with the receive buffer
+                    // 创建一个DatagramPacket对象，用于存储接收到的数据，使用接收缓冲区
+                    DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
                 }
 
 
