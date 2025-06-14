@@ -260,6 +260,10 @@ public class UDPServer {
                                 // 将数据编码为Base64格式
                                 String base64Data = Base64.getEncoder().encodeToString(bytesRead == blockSize ? fileData : java.util.Arrays.copyOf(fileData, bytesRead));
 
+                                // Prepare response with file data
+                                // 准备包含文件数据的响应
+                                String response = String.format("FILE %s OK START %d END %d DATA %s", filename, start, start + bytesRead - 1, base64Data);
+
                             }
 
                           
