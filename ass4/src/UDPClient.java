@@ -300,6 +300,10 @@ public class UDPClient{
                     // Notify user about the timeout and retry attempt
                     // 通知用户超时及重试尝试
                     System.out.println("Timeout, retrying (" + retries + ")...");
+
+                    // Exponential backoff: double the timeout for next attempt
+                    // 指数退避：下次尝试时将超时时间加倍
+                    currentTimeout *= 2;
                 }
 
             }
