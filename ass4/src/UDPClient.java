@@ -292,7 +292,8 @@ public class UDPClient{
                     
                     return response.trim();
 
-                } catch (SocketTimeoutException e) {
+                } 
+                catch (SocketTimeoutException e) {
                     // Increment the retry counter
                     // 增加重试计数器
                     retries++;
@@ -304,8 +305,14 @@ public class UDPClient{
                     // Exponential backoff: double the timeout for next attempt
                     // 指数退避：下次尝试时将超时时间加倍
                     currentTimeout *= 2;
+                    continue;
                 }
 
+            }
+            catch (IOException e){
+                // Handle other IO errors and retry
+                // 处理其他IO错误并重试
+                retries++;
             }
         }
 
