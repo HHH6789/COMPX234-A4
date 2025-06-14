@@ -183,6 +183,12 @@ public class UDPServer {
                     // Create a DatagramPacket to store incoming data with the receive buffer
                     // 创建一个DatagramPacket对象，用于存储接收到的数据，使用接收缓冲区
                     DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
+
+                    // Block and wait to receive a UDP packet from the network
+                    // 阻塞并等待从网络接收UDP数据包
+                    dataSocket.receive(receivePacket);
+
+                    
                 }
 
 
