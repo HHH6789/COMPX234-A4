@@ -104,6 +104,10 @@ public class UDPServer {
                         // Send error message if file not found
                         // 如果文件不存在则发送错误消息
                         String errorMsg = "ERR " + filename + " NOT_FOUND";
+
+                        // Convert the error message string to a byte array for network transmission
+                        // 将错误消息字符串转换为字节数组以便网络传输
+                        byte[] sendData = errorMsg.getBytes();
                     }
 
                     // Start new thread for file transfer
