@@ -184,6 +184,10 @@ public class UDPClient{
                         // 将Base64字符串解码为二进制文件数据
                         byte[] fileData = Base64.getDecoder().decode(base64Data);
 
+                        // Move the file pointer to the correct position for this block
+                        // 将文件指针移动到当前数据块的正确位置
+                        raf.seek(start);
+
                     }
 
                 }
