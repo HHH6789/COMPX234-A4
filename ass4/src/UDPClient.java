@@ -293,6 +293,9 @@ public class UDPClient{
                     return response.trim();
 
                 } catch (SocketTimeoutException e) {
+                    // Increment the retry counter
+                    // 增加重试计数器
+                    retries++;
                 }
 
             }
