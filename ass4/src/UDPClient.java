@@ -256,6 +256,10 @@ public class UDPClient{
         // 创建一个用于发送数据的UDP数据报包
         DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, address, port);
 
+        // Create receive packet buffer
+        // 创建接收包缓冲区
+        byte[] receiveData = new byte[2048];
+
     }
 
 }
