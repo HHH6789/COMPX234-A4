@@ -188,7 +188,11 @@ public class UDPServer {
                     // 阻塞并等待从网络接收UDP数据包
                     dataSocket.receive(receivePacket);
 
-                    
+                    // Convert the received packet data bytes into a string and trim whitespace
+                    // 将接收到的数据包字节数据转换为字符串并去除首尾空格
+                    String request = new String(receivePacket.getData(), 0, receivePacket.getLength()).trim();
+
+
                 }
 
 
