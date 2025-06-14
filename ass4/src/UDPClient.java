@@ -157,6 +157,9 @@ public class UDPClient{
                         // Check if the block response is null 
                         // 检查块响应是否为null
                         if (blockResponse == null){
+                            // Print error message indicating block retrieval failure after retry attempts
+                            // 打印错误信息，表示重试后仍然获取数据块失败
+                            System.out.println("Failed to get block after retries");
 
                         }
                     }
