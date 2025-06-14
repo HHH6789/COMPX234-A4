@@ -240,6 +240,7 @@ public class UDPClient{
             // Print user-friendly error message with exception details
             // 打印包含异常详情的用户友好错误信息
             System.out.println("Client error: " + e.getMessage());
+            e.printStackTrace();
         }
 
     }
