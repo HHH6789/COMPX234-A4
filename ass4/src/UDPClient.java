@@ -21,7 +21,13 @@ public class UDPClient{
     // Main method to start the UDP client
     // 主方法，启动UDP客户端
     public static void main(String[] args){
-        
+        // Check if correct number of arguments are provided
+        // 检查参数数量是否正确
+        if (args.length != 3) {
+
+
+            
+        }
     }
 
 }
