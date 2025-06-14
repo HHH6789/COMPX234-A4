@@ -166,6 +166,12 @@ public class UDPClient{
                         // Split block response (limit split to preserve data)
                         // 拆分块响应（限制拆分以保留数据）
                         String[] blockParts = blockResponse.split(" ", 8);
+
+                        // Verify the block response starts with "FILE" and contains "OK" status
+                        // 验证块响应是否以"FILE"开头且包含"OK"状态
+                        if (!blockParts[0].equals("FILE") || !blockParts[2].equals("OK")){
+                            
+                        }
                     }
 
                 }
