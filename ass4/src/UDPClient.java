@@ -206,6 +206,10 @@ public class UDPClient{
                     // 在进度指示器后打印新行
                     System.out.println();
 
+                    // Print summary of completed download with total bytes received
+                    // 打印下载完成摘要及接收到的总字节数
+                    System.out.printf("Downloaded %d bytes of %s%n", bytesReceived.get(), filename);
+
                 }
 
             }
