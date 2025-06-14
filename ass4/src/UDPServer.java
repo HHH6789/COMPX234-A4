@@ -156,6 +156,14 @@ public class UDPServer {
             // 格式化成功响应消息，包含文件详情和数据端口
             String okMsg = String.format("OK %s SIZE %d PORT %d", file.getName(), file.length(), dataPort);
 
+            // Convert the message string to bytes for network transmission
+            // 将消息字符串转换为字节数组用于网络传输
+            byte[] sendData = okMsg.getBytes();
+
+            // Create a UDP packet containing the response message, targeting client's address and port
+            // 创建包含响应消息的UDP数据包，目标为客户端地址和端口
+            DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, clientAddress, clientPort);
+
         } catch (Exception e) {
         }
     }
