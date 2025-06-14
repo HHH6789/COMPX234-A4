@@ -23,7 +23,15 @@ public class UDPServer {
      // Main method to start the server
     // 启动服务器的主方法
     public static void main(String[] args){
-        
+        // Check for correct command line arguments
+        // 检查命令行参数是否正确
+        if (args.length != 1) {
+            //output "Usage: java UDPServer <port>"
+            //输出
+            System.out.println("Usage: java UDPServer <port>");
+            return;
+
+        }
     }
 
 }
