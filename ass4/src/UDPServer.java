@@ -295,6 +295,10 @@ public class UDPServer {
             dataSocket.close();
 
         } catch (Exception e) {
+            // Print a user-friendly error message to standard output
+            // 向标准输出打印用户友好的错误信息
+            System.out.println("File transfer error: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
