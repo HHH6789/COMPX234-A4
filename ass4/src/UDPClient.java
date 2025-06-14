@@ -44,6 +44,12 @@ public class UDPClient{
         // 从第三个命令行参数获取包含要下载文件列表的文件名
         String fileListName = args[2];
 
+        // Create DatagramSocket and BufferedReader for file list
+        // 创建DatagramSocket和用于读取文件列表的BufferedReader
+        try (DatagramSocket socket = new DatagramSocket();BufferedReader fileListReader = new BufferedReader(new FileReader(fileListName))){
+            
+        }
+
     }
 
 }
