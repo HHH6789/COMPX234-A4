@@ -214,6 +214,11 @@ public class UDPClient{
                     // 发送CLOSE消息确认完成
                     String closeMsg = "FILE " + filename + " CLOSE";
 
+                    // Send close message and receive server's response for the data connection
+                    // 发送关闭消息并接收服务器对数据连接的响应
+                    String closeResponse = sendAndReceive(socket, serverAddress, dataPort, closeMsg);
+
+
 
                 }
 
