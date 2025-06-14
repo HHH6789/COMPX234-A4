@@ -268,6 +268,16 @@ public class UDPClient{
         // 初始化超时和重试计数器
         int currentTimeout = INITIAL_TIMEOUT;
         int retries = 0;
+
+
+        // Retry loop
+        // 重试循环
+        while (retries < MAX_RETRIES){
+            try{
+                
+            }
+        }
+
     }
 
 }
