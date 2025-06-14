@@ -285,6 +285,10 @@ public class UDPClient{
                     // Receive an incoming UDP packet 
                     // 接收传入的UDP数据包
                     socket.receive(receivePacket);
+
+                    // Convert the received packet data bytes to a String
+                    // 将接收到的数据包字节转换为字符串
+                    String response = new String(receivePacket.getData(), 0, receivePacket.getLength());
                     
                 } catch (Exception e) {
                 }
