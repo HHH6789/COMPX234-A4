@@ -50,6 +50,15 @@ public class UDPClient{
             // Get server address from hostname
             // 根据主机名获取服务器地址
             InetAddress serverAddress = InetAddress.getByName(hostname);
+            String filename;
+            
+            // Read each filename from the file list
+            // 从文件列表中逐行读取文件名
+            while ((filename = fileListReader.readLine()) != null){
+
+
+
+            }
 
         }
 
