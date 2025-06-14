@@ -123,6 +123,10 @@ public class UDPClient{
                 // 将响应数据中的数据端口号在索引5位置解析为 int 类型  
                 int dataPort = Integer.parseInt(parts[5]);  
 
+                // Print download information including filename and file size  
+                // 打印下载信息，包含文件名和文件大小  
+                System.out.printf("Downloading %s (size: %d bytes)%n", responseFilename, fileSize); 
+
             }
 
         }
