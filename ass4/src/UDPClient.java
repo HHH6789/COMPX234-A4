@@ -72,6 +72,10 @@ public class UDPClient{
                 // 构造DOWNLOAD请求消息，将命令与文件名连接起来
                 String downloadMsg = "DOWNLOAD " + filename;
 
+                // Send the DOWNLOAD request to the server and wait for the response
+                //向服务器发送DOWNLOAD请求并等待响应
+                String response = sendAndReceive(socket, serverAddress, port, downloadMsg);
+
             }
 
         }
