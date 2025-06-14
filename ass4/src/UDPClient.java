@@ -92,6 +92,12 @@ public class UDPClient{
                 // 将响应拆分为多个部分
                 String[] parts = response.split(" ");
 
+                // Check if the first part of the response indicates an error ("ERR")
+                // 检查响应第一部分是否为错误标识 ("ERR")
+                if (parts[0].equals("ERR")){
+                    
+                }
+
             }
 
         }
