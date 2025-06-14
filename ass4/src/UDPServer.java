@@ -196,6 +196,12 @@ public class UDPServer {
                     // 使用空格作为分隔符将请求字符串分割成多个部分
                     String[] parts = request.split(" ");
 
+                    // Check if the first part is "FILE" command and has at least 2 elements :command and filename
+                    // 检查第一部分是否为"FILE"命令且至少包含2个元素:命令和文件名
+                    if (parts[0].equals("FILE") && parts.length >= 2){
+                        String filename = parts[1];
+                    }
+
 
                 }
 
