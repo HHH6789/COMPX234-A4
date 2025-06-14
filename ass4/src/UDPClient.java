@@ -31,6 +31,12 @@ public class UDPClient{
 
 
         }
+        // Get the server hostname/IP address from the first command line argument
+        // 从第一个命令行参数获取服务器的主机名/IP地址
+        String hostname = args[0];
+
+
+
     }
 
 }
