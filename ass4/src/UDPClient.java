@@ -127,6 +127,11 @@ public class UDPClient{
                 // 打印下载信息，包含文件名和文件大小  
                 System.out.printf("Downloading %s (size: %d bytes)%n", responseFilename, fileSize); 
 
+
+                // Create a File object representing the output file with the given filename
+                // 根据给定的文件名创建一个表示输出文件的File对象
+                File outputFile = new File(filename);
+
             }
 
         }
