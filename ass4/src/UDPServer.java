@@ -224,6 +224,12 @@ public class UDPServer {
 
                         }
 
+                        // Handle data request
+                        // 处理数据请求
+                        else if (parts[2].equals("GET") && parts.length >= 7){
+                            
+                        }
+
 
 
                     }
