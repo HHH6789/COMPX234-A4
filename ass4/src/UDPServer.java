@@ -105,6 +105,10 @@ public class UDPServer {
                         // 如果文件不存在则发送错误消息
                         String errorMsg = "ERR " + filename + " NOT_FOUND";
                     }
+
+                    // Start new thread for file transfer
+                    // 启动新线程处理文件传输
+                    new Thread(() -> handleFileTransfer(file, clientAddress, clientPort)).start();
                     
                 }
 
