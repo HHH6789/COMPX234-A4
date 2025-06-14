@@ -115,6 +115,10 @@ public class UDPClient{
                 // 从响应数据中提取文件名在索引1位置  
                 String responseFilename = parts[1]; 
 
+                // Parse the file size from the response parts  at index 3 into a long value  
+                // 将响应数据中的文件大小在索引3位置解析为 long 类型  
+                long fileSize = Long.parseLong(parts[3]); 
+
             }
 
         }
