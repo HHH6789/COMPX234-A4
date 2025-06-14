@@ -188,6 +188,10 @@ public class UDPClient{
                         // 将文件指针移动到当前数据块的正确位置
                         raf.seek(start);
 
+                        // Write the decoded binary data to the file
+                        // 将解码后的二进制数据写入文件
+                        raf.write(fileData);
+
                     }
 
                 }
