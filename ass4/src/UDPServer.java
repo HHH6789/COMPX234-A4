@@ -96,6 +96,15 @@ public class UDPServer {
                     // Get the client's IP address from the received packet
                     // 从接收到的数据包中获取客户端的IP地址
                     InetAddress clientAddress = receivePacket.getAddress();
+
+
+                    // Check if file exists
+                    // 检查文件是否存在
+                    if (!file.exists() || !file.isFile()){
+                        // Send error message if file not found
+                        // 如果文件不存在则发送错误消息
+                        String errorMsg = "ERR " + filename + " NOT_FOUND";
+                    }
                     
                 }
 
