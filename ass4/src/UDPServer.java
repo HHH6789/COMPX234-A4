@@ -1,8 +1,5 @@
 // Import necessary Java libraries
 // 导入必要的Java库
-import java.io.*;
-import java.net.*;
-import java.util.Base64;
 import java.util.Random;
 
 // Main server class for UDP file transfers
@@ -18,5 +15,9 @@ public class UDPServer {
     // Maximum block size for file transfer
     // 文件传输的最大块大小
     private static final int MAX_BLOCK_SIZE = 1000;
+
+    // Random number generator for port selection
+    // 用于端口选择的随机数生成器
+    private static final Random random = new Random();
 
 }
