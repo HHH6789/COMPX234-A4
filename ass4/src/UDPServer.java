@@ -113,7 +113,11 @@ public class UDPServer {
                         // 创建一个包含错误消息的UDP数据包，目标为客户端地址和端口
                         DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, clientAddress, clientPort);
 
+                        // Send the error message packet back to the client
+                        // 将错误消息数据包发送回客户端
+                        socket.send(sendPacket);
                         
+                        continue;
                     }
 
                     // Start new thread for file transfer
