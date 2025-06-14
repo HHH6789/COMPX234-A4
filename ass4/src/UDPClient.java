@@ -139,6 +139,12 @@ public class UDPClient{
                     // 用于记录接收字节数的原子计数器
                     AtomicInteger bytesReceived = new AtomicInteger(0);
 
+                    // Loop through the file in chunks of MAX_BLOCK_SIZE bytes
+                    // 以MAX_BLOCK_SIZE字节为块大小循环遍历文件
+                    for (long start = 0; start < fileSize; start += MAX_BLOCK_SIZE){
+                        
+                    }
+
                 }
 
             }
