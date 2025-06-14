@@ -142,7 +142,9 @@ public class UDPClient{
                     // Loop through the file in chunks of MAX_BLOCK_SIZE bytes
                     // 以MAX_BLOCK_SIZE字节为块大小循环遍历文件
                     for (long start = 0; start < fileSize; start += MAX_BLOCK_SIZE){
-                        
+                        // Calculate the end position for the current block, ensuring we don't exceed file size
+                        // 计算当前块的结束位置，确保不超过文件大小
+                        long end = Math.min(start + MAX_BLOCK_SIZE - 1, fileSize - 1);
                     }
 
                 }
