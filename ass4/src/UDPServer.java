@@ -216,6 +216,11 @@ public class UDPServer {
                             // 创建包含关闭确认的UDP数据包，目标为客户端地址和端口
                             DatagramPacket closeOkPacket = new DatagramPacket(closeOkData, closeOkData.length, clientAddress, clientPort);
 
+                            // Send the close acknowledgement packet to the client
+                            // 将关闭确认数据包发送给客户端
+                            dataSocket.send(closeOkPacket);
+                            break;
+
 
                         }
 
