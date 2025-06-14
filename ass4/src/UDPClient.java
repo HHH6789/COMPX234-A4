@@ -281,6 +281,14 @@ public class UDPClient{
                 // 为后续的接收操作设置套接字超时时间
                 socket.setSoTimeout(currentTimeout);
 
+                try {
+                    // Receive an incoming UDP packet 
+                    // 接收传入的UDP数据包
+                    socket.receive(receivePacket);
+                    
+                } catch (Exception e) {
+                }
+
             }
         }
 
