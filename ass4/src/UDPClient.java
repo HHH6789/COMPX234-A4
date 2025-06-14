@@ -119,6 +119,10 @@ public class UDPClient{
                 // 将响应数据中的文件大小在索引3位置解析为 long 类型  
                 long fileSize = Long.parseLong(parts[3]); 
 
+                // Parse the data port number from the response parts at index 5 into an integer  
+                // 将响应数据中的数据端口号在索引5位置解析为 int 类型  
+                int dataPort = Integer.parseInt(parts[5]);  
+
             }
 
         }
