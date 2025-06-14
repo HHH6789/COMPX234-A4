@@ -1,5 +1,6 @@
 // Import necessary Java libraries
 // 导入必要的Java库
+import java.net.DatagramSocket;
 import java.util.Random;
 
 // Main server class for UDP file transfers
@@ -36,6 +37,12 @@ public class UDPServer {
         // Parse port number from arguments
         // 从参数中解析端口号
         int port = Integer.parseInt(args[0]);
+
+        // Create UDP socket and handle exceptions
+        // 创建UDP套接字并处理异常
+        try (DatagramSocket socket = new DatagramSocket(port)){
+            
+        }
 
     }
 
