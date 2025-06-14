@@ -180,7 +180,9 @@ public class UDPClient{
                         // 从响应中提取"DATA"标记后的Base64编码数据部分
                         String base64Data = blockResponse.substring(blockResponse.indexOf("DATA") + 5);
 
-
+                        // Decode the Base64 string into binary file data
+                        // 将Base64字符串解码为二进制文件数据
+                        byte[] fileData = Base64.getDecoder().decode(base64Data);
 
                     }
 
