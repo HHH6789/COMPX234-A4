@@ -251,6 +251,13 @@ public class UDPServer {
                             // 从文件中读取请求的数据块到缓冲区
                             int bytesRead = raf.read(fileData);
 
+
+                            // If data was read successfully
+                            // 如果成功读取数据
+                            if (bytesRead > 0){
+                                
+                            }
+
                           
                         }
 
