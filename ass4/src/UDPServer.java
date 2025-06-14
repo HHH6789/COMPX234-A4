@@ -1,5 +1,6 @@
 // Import necessary Java libraries
 // 导入必要的Java库
+import java.io.File;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.util.Random;
@@ -78,6 +79,12 @@ public class UDPServer {
                     //无效消息
                     continue;
 
+                }
+
+                // Handle DOWNLOAD request
+                // 处理DOWNLOAD请求
+                if (parts[0].equals("DOWNLOAD")){
+                    
                 }
 
             }
