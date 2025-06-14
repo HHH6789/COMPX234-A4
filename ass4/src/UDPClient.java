@@ -39,7 +39,10 @@ public class UDPClient{
         // 从第二个命令行参数获取服务器端口号并转换为整数
         int port = Integer.parseInt(args[1]);
 
-
+        
+        // Get the filename containing the list of files to download from the third command line argument
+        // 从第三个命令行参数获取包含要下载文件列表的文件名
+        String fileListName = args[2];
 
     }
 
