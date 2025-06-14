@@ -208,6 +208,10 @@ public class UDPServer {
                             // 准备包含文件名的关闭确认消息
                             String closeOkMsg = "FILE " + filename + " CLOSE_OK";
 
+                            // Convert the message string to bytes for network transmission
+                            // 将消息字符串转换为字节数组用于网络传输
+                            byte[] closeOkData = closeOkMsg.getBytes();
+
 
                         }
 
