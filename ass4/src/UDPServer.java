@@ -71,6 +71,12 @@ public class UDPServer {
                 // 将请求拆分为多个部分
                 String[] parts = request.split(" ");
 
+                 // Validate request format
+                // 验证请求格式
+                if (parts.length < 2){
+                    
+                }
+
             }
 
         }
