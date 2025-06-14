@@ -47,7 +47,10 @@ public class UDPClient{
         // Create DatagramSocket and BufferedReader for file list
         // 创建DatagramSocket和用于读取文件列表的BufferedReader
         try (DatagramSocket socket = new DatagramSocket();BufferedReader fileListReader = new BufferedReader(new FileReader(fileListName))){
-            
+            // Get server address from hostname
+            // 根据主机名获取服务器地址
+            InetAddress serverAddress = InetAddress.getByName(hostname);
+
         }
 
     }
