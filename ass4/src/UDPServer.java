@@ -148,6 +148,11 @@ public class UDPServer {
             // 为数据传输选择随机端口
             int dataPort = MIN_DATA_PORT + random.nextInt(MAX_DATA_PORT - MIN_DATA_PORT + 1);
 
+            // Create socket for data transfer
+            // 创建用于数据传输的套接字
+            DatagramSocket dataSocket = new DatagramSocket(dataPort);
+
+
             
         } catch (Exception e) {
         }
