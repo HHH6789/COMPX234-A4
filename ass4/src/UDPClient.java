@@ -252,6 +252,10 @@ public class UDPClient{
         // 将消息转换为字节并创建发送包
         byte[] sendData = message.getBytes();
 
+        // Create a UDP datagram packet for sending data
+        // 创建一个用于发送数据的UDP数据报包
+        DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, address, port);
+
     }
 
 }
