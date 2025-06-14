@@ -210,6 +210,11 @@ public class UDPClient{
                     // 打印下载完成摘要及接收到的总字节数
                     System.out.printf("Downloaded %d bytes of %s%n", bytesReceived.get(), filename);
 
+                    // Send CLOSE message to confirm completion
+                    // 发送CLOSE消息确认完成
+                    String closeMsg = "FILE " + filename + " CLOSE";
+
+
                 }
 
             }
