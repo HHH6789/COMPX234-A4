@@ -132,6 +132,12 @@ public class UDPClient{
                 // 根据给定的文件名创建一个表示输出文件的File对象
                 File outputFile = new File(filename);
 
+                // Try-with-resources block to open a RandomAccessFile for reading and writing
+                // 使用try-with-resources语句块打开一个可读写的RandomAccessFile
+                try (RandomAccessFile raf = new RandomAccessFile(outputFile, "rw")) {
+                    
+                }
+
             }
 
         }
