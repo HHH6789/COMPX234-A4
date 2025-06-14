@@ -172,7 +172,9 @@ public class UDPServer {
             // Open file for reading
             // 打开文件进行读取
             try (RandomAccessFile raf = new RandomAccessFile(file, "r")){
-                
+                // Buffer for incoming requests
+                // 接收请求的缓冲区
+                byte[] receiveData = new byte[1024];
             }
 
         } catch (Exception e) {
