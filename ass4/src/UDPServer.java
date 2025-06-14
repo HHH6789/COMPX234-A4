@@ -49,6 +49,13 @@ public class UDPServer {
             // 接收数据的缓冲区
             byte[] receiveData = new byte[1024];
 
+
+            // Main server loop
+            // 服务器主循环
+            while (true){
+                
+            }
+
         }
 
     }
