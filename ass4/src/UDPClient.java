@@ -76,6 +76,14 @@ public class UDPClient{
                 //向服务器发送DOWNLOAD请求并等待响应
                 String response = sendAndReceive(socket, serverAddress, port, downloadMsg);
 
+                // Check if the response is null
+                // 检查响应是否为null
+                if (response == null){
+                    // Print error message when failed to get response after retries
+                    // 当重试后仍无法获取响应时打印错误信息
+                    System.out.println("Failed to get response for DOWNLOAD request after retries");
+                }
+
             }
 
         }
