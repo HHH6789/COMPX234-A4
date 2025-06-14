@@ -64,6 +64,10 @@ public class UDPClient{
                 // 如果文件名在去除空白后为空（文件列表中的空行），则跳过当前循环
                 if (filename.isEmpty()) continue;
 
+                // Print the filename that is being requested from the server
+                // 打印正在向服务器请求的文件名
+                System.out.println("Requesting file: " + filename);
+
 
 
             }
