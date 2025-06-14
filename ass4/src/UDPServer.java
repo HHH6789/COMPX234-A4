@@ -5,6 +5,7 @@ import java.io.RandomAccessFile;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.util.Base64;
 import java.util.Random;
 
 // Main server class for UDP file transfers
@@ -255,7 +256,10 @@ public class UDPServer {
                             // If data was read successfully
                             // 如果成功读取数据
                             if (bytesRead > 0){
-                                
+                                // Encode data in Base64
+                                // 将数据编码为Base64格式
+                                String base64Data = Base64.getEncoder().encodeToString(bytesRead == blockSize ? fileData : java.util.Arrays.copyOf(fileData, bytesRead));
+
                             }
 
                           
