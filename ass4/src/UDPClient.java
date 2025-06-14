@@ -160,8 +160,12 @@ public class UDPClient{
                             // Print error message indicating block retrieval failure after retry attempts
                             // 打印错误信息，表示重试后仍然获取数据块失败
                             System.out.println("Failed to get block after retries");
-
+                            break;
                         }
+
+                        // Split block response (limit split to preserve data)
+                        // 拆分块响应（限制拆分以保留数据）
+                        String[] blockParts = blockResponse.split(" ", 8);
                     }
 
                 }
