@@ -227,13 +227,17 @@ public class UDPServer {
                         // Handle data request
                         // 处理数据请求
                         else if (parts[2].equals("GET") && parts.length >= 7){
-                            // Parse the starting byte position from request parts (converting String to long)
-                            // 从请求部分解析起始字节位置(将字符串转换为long类型)
+                            // Parse the starting byte position from request parts ,converting String to long
+                            // 从请求部分解析起始字节位置
                             long start = Long.parseLong(parts[4]);
 
-                            // Parse the ending byte position from request parts (converting String to long)
-                            // 从请求部分解析结束字节位置(将字符串转换为long类型)
+                            // Parse the ending byte position from request parts ,converting String to long
+                            // 从请求部分解析结束字节位置
                             long end = Long.parseLong(parts[6]);
+
+                            // Calculate the block size needed ,positions are inclusive
+                            // 计算需要的块大小,起止位置是包含
+                            int blockSize = (int) (end - start + 1);
 
                         }
 
