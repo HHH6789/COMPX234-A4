@@ -152,8 +152,10 @@ public class UDPServer {
             // 创建用于数据传输的套接字
             DatagramSocket dataSocket = new DatagramSocket(dataPort);
 
+            // Format the success response message with file details and data port
+            // 格式化成功响应消息，包含文件详情和数据端口
+            String okMsg = String.format("OK %s SIZE %d PORT %d", file.getName(), file.length(), dataPort);
 
-            
         } catch (Exception e) {
         }
     }
