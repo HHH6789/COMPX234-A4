@@ -196,7 +196,9 @@ public class UDPClient{
                         // 原子性地更新已接收字节总数
                         bytesReceived.addAndGet(fileData.length);
 
-
+                        // Print progress indicator for each successfully received block
+                        // 为每个成功接收的数据块打印进度指示器
+                        System.out.print("*");
 
                     }
 
