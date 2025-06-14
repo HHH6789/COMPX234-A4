@@ -20,4 +20,10 @@ public class UDPServer {
     // 用于端口选择的随机数生成器
     private static final Random random = new Random();
 
+     // Main method to start the server
+    // 启动服务器的主方法
+    public static void main(String[] args){
+        
+    }
+
 }
