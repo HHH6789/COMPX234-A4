@@ -41,7 +41,10 @@ public class UDPServer {
         // Create UDP socket and handle exceptions
         // 创建UDP套接字并处理异常
         try (DatagramSocket socket = new DatagramSocket(port)){
-            
+            //打印服务器启动信息，显示监听的端口号
+            // Print server startup information, displaying the port being listened on
+            System.out.println("Server started on port " + port);
+
         }
 
     }
