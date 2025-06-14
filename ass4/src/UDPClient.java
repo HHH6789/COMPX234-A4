@@ -35,6 +35,10 @@ public class UDPClient{
         // 从第一个命令行参数获取服务器的主机名/IP地址
         String hostname = args[0];
 
+        // Get the server port number from the second command line argument and convert it to integer
+        // 从第二个命令行参数获取服务器端口号并转换为整数
+        int port = Integer.parseInt(args[1]);
+
 
 
     }
