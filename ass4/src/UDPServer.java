@@ -204,7 +204,11 @@ public class UDPServer {
                         // Handle close request
                         // 处理关闭请求
                         if (parts[2].equals("CLOSE")){
-                            
+                            // Prepare the close acknowledgement message with filename
+                            // 准备包含文件名的关闭确认消息
+                            String closeOkMsg = "FILE " + filename + " CLOSE_OK";
+
+
                         }
 
 
