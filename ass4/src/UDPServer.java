@@ -227,7 +227,14 @@ public class UDPServer {
                         // Handle data request
                         // 处理数据请求
                         else if (parts[2].equals("GET") && parts.length >= 7){
-                            
+                            // Parse the starting byte position from request parts (converting String to long)
+                            // 从请求部分解析起始字节位置(将字符串转换为long类型)
+                            long start = Long.parseLong(parts[4]);
+
+                            // Parse the ending byte position from request parts (converting String to long)
+                            // 从请求部分解析结束字节位置(将字符串转换为long类型)
+                            long end = Long.parseLong(parts[6]);
+
                         }
 
 
