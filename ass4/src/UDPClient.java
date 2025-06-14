@@ -68,7 +68,9 @@ public class UDPClient{
                 // 打印正在向服务器请求的文件名
                 System.out.println("Requesting file: " + filename);
 
-
+                // Construct the DOWNLOAD request message by concatenating the command with the filename
+                // 构造DOWNLOAD请求消息，将命令与文件名连接起来
+                String downloadMsg = "DOWNLOAD " + filename;
 
             }
 
