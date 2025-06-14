@@ -277,6 +277,9 @@ public class UDPClient{
                 // Send the prepared UDP datagram packet
                 // 发送已准备好的UDP数据报包
                 socket.send(sendPacket);
+                // Set the socket timeout for subsequent receive operations 
+                // 为后续的接收操作设置套接字超时时间
+                socket.setSoTimeout(currentTimeout);
 
             }
         }
