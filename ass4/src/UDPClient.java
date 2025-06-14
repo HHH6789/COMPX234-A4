@@ -145,6 +145,10 @@ public class UDPClient{
                         // Calculate the end position for the current block, ensuring we don't exceed file size
                         // 计算当前块的结束位置，确保不超过文件大小
                         long end = Math.min(start + MAX_BLOCK_SIZE - 1, fileSize - 1);
+
+                        // Create block request message in the format: "FILE [filename] GET START [start] END [end]"
+                        // 创建块请求消息，格式为："FILE [文件名] GET START [起始位置] END [结束位置]"
+                        String blockRequest = String.format("FILE %s GET START %d END %d", filename, start, end);
                     }
 
                 }
