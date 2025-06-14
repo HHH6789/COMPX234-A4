@@ -144,6 +144,10 @@ public class UDPServer {
     // 处理与客户端的文件传输的方法
     private static void handleFileTransfer(File file, InetAddress clientAddress, int clientPort){
         try {
+            // Select random port for data transfer
+            // 为数据传输选择随机端口
+            int dataPort = MIN_DATA_PORT + random.nextInt(MAX_DATA_PORT - MIN_DATA_PORT + 1);
+
             
         } catch (Exception e) {
         }
