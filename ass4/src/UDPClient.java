@@ -290,7 +290,9 @@ public class UDPClient{
                     // 将接收到的数据包字节转换为字符串
                     String response = new String(receivePacket.getData(), 0, receivePacket.getLength());
                     
-                } catch (Exception e) {
+                    return response.trim();
+
+                } catch (SocketTimeoutException e) {
                 }
 
             }
