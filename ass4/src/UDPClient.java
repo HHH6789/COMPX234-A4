@@ -88,6 +88,10 @@ public class UDPClient{
                     continue;
                 }
 
+                // Split response into parts
+                // 将响应拆分为多个部分
+                String[] parts = response.split(" ");
+
             }
 
         }
