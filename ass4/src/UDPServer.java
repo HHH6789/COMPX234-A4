@@ -290,6 +290,9 @@ public class UDPServer {
 
 
             }
+            // Close data socket when done
+            // 完成后关闭数据套接字
+            dataSocket.close();
 
         } catch (Exception e) {
         }
