@@ -1,5 +1,6 @@
 // Import necessary Java libraries
 // 导入必要的Java库
+import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.util.Random;
 
@@ -53,6 +54,12 @@ public class UDPServer {
             // Main server loop
             // 服务器主循环
             while (true){
+                // Prepare packet for receiving data
+                // 准备接收数据的包
+                DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
+
+
+
                 
             }
 
