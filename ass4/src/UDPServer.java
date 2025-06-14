@@ -140,4 +140,16 @@ public class UDPServer {
 
     }
 
+    // Method to handle file transfer with client
+    // 处理与客户端的文件传输的方法
+    private static void handleFileTransfer(File file, InetAddress clientAddress, int clientPort){
+        
+    }
+
+
+
+
+
+
+
 }
