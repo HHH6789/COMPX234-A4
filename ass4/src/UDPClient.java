@@ -274,7 +274,10 @@ public class UDPClient{
         // 重试循环
         while (retries < MAX_RETRIES){
             try{
-                
+                // Send the prepared UDP datagram packet
+                // 发送已准备好的UDP数据报包
+                socket.send(sendPacket);
+
             }
         }
 
