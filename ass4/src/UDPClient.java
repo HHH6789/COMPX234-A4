@@ -170,7 +170,10 @@ public class UDPClient{
                         // Verify the block response starts with "FILE" and contains "OK" status
                         // 验证块响应是否以"FILE"开头且包含"OK"状态
                         if (!blockParts[0].equals("FILE") || !blockParts[2].equals("OK")){
-                            
+                            // Print the invalid response message for debugging
+                            // 打印无效响应消息用于调试
+                            System.out.println("Invalid block response: " + blockResponse);
+                            break;
                         }
                     }
 
