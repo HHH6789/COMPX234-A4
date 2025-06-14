@@ -149,6 +149,10 @@ public class UDPClient{
                         // Create block request message in the format: "FILE [filename] GET START [start] END [end]"
                         // 创建块请求消息，格式为："FILE [文件名] GET START [起始位置] END [结束位置]"
                         String blockRequest = String.format("FILE %s GET START %d END %d", filename, start, end);
+
+                        // Send block request and get response
+                        // 发送块请求并获取响应
+                        String blockResponse = sendAndReceive(socket, serverAddress, dataPort, blockRequest);
                     }
 
                 }
