@@ -82,6 +82,10 @@ public class UDPClient{
                     // Print error message when failed to get response after retries
                     // 当重试后仍无法获取响应时打印错误信息
                     System.out.println("Failed to get response for DOWNLOAD request after retries");
+
+                    // Skip to next iteration in the loop
+                    // 跳过本次循环继续下一次迭代
+                    continue;
                 }
 
             }
