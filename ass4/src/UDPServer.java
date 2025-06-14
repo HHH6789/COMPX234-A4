@@ -239,10 +239,15 @@ public class UDPServer {
                             // 计算需要的块大小,起止位置是包含
                             int blockSize = (int) (end - start + 1);
 
+                            // Create a byte array buffer of the calculated block size
+                            // 创建计算得出的块大小的字节数组缓冲区
+                            byte[] fileData = new byte[blockSize];
+
                             // Move file pointer to the specified starting position
                             // 将文件指针移动到指定的起始位置
                             raf.seek(start);
 
+                          
                         }
 
 
