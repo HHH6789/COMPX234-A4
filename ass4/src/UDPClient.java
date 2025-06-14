@@ -175,6 +175,13 @@ public class UDPClient{
                             System.out.println("Invalid block response: " + blockResponse);
                             break;
                         }
+
+                        // Extract the Base64 encoded data portion after the "DATA" marker in the response
+                        // 从响应中提取"DATA"标记后的Base64编码数据部分
+                        String base64Data = blockResponse.substring(blockResponse.indexOf("DATA") + 5);
+
+
+
                     }
 
                 }
