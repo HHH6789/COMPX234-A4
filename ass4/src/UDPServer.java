@@ -58,9 +58,11 @@ public class UDPServer {
                 // 准备接收数据的包
                 DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
 
+                // Wait for incoming packet
+                // 等待传入的数据包
+                socket.receive(receivePacket);
 
 
-                
             }
 
         }
