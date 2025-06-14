@@ -192,6 +192,10 @@ public class UDPServer {
                     // 将接收到的数据包字节数据转换为字符串并去除首尾空格
                     String request = new String(receivePacket.getData(), 0, receivePacket.getLength()).trim();
 
+                    // Split the request string into parts using space as delimiter
+                    // 使用空格作为分隔符将请求字符串分割成多个部分
+                    String[] parts = request.split(" ");
+
 
                 }
 
