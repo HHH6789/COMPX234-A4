@@ -66,6 +66,11 @@ public class UDPServer {
                 // 将接收到的数据转换为字符串
                 String request = new String(receivePacket.getData(), 0, receivePacket.getLength()).trim();
 
+
+                // Split request into parts
+                // 将请求拆分为多个部分
+                String[] parts = request.split(" ");
+
             }
 
         }
