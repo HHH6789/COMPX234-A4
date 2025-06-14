@@ -175,6 +175,15 @@ public class UDPServer {
                 // Buffer for incoming requests
                 // 接收请求的缓冲区
                 byte[] receiveData = new byte[1024];
+
+
+                // File transfer loop
+                // 文件传输循环
+                while (true){
+                    
+                }
+
+
             }
 
         } catch (Exception e) {
