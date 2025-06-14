@@ -1,6 +1,7 @@
 // Import necessary Java libraries
 // 导入必要的Java库
 import java.io.File;
+import java.io.RandomAccessFile;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
@@ -167,6 +168,12 @@ public class UDPServer {
             // Send the response packet to the client through the data socket
             // 通过数据套接字将响应数据包发送给客户端
             dataSocket.send(sendPacket);
+
+            // Open file for reading
+            // 打开文件进行读取
+            try (RandomAccessFile raf = new RandomAccessFile(file, "r")){
+                
+            }
 
         } catch (Exception e) {
         }
