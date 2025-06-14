@@ -31,6 +31,10 @@ public class UDPServer {
             System.out.println("Usage: java UDPServer <port>");
             return;
 
+            // Parse port number from arguments
+            // 从参数中解析端口号
+            int port = Integer.parseInt(args[0]);
+
         }
     }
 
