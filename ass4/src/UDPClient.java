@@ -225,6 +225,12 @@ public class UDPClient{
                         // 如果收到关闭确认，打印成功消息
                         System.out.println("File transfer completed successfully");
                     }
+                    else {
+                        // Print error message if close confirmation is missing or invalid
+                        // 如果关闭确认缺失或无效，打印错误消息
+                        System.out.println("Failed to get proper close confirmation");
+                    }
+                    
 
                 }
 
