@@ -45,6 +45,10 @@ public class UDPServer {
             // Print server startup information, displaying the port being listened on
             System.out.println("Server started on port " + port);
 
+            // Buffer for incoming data
+            // 接收数据的缓冲区
+            byte[] receiveData = new byte[1024];
+
         }
 
     }
