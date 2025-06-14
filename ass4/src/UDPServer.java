@@ -272,6 +272,10 @@ public class UDPServer {
                                 // 创建包含响应数据的UDP数据包，指定客户端地址和端口
                                 DatagramPacket responsePacket = new DatagramPacket(responseData, responseData.length, clientAddress, clientPort);
 
+                                // Send the response packet back to the client through the data socket
+                                // 通过数据套接字将响应数据包发送回客户端
+                                dataSocket.send(responsePacket);
+
                             }
 
                           
