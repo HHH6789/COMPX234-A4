@@ -84,6 +84,9 @@ public class UDPServer {
                 // Handle DOWNLOAD request
                 // 处理DOWNLOAD请求
                 if (parts[0].equals("DOWNLOAD")){
+                    // Extract the filename from the request parts
+                    // 从请求部分中提取文件名
+                    String filename = parts[1];
                     
                 }
 
