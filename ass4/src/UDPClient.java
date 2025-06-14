@@ -264,7 +264,10 @@ public class UDPClient{
         // 创建一个用于接收传入数据的UDP数据报包
         DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
 
-        
+        // Initialize timeout and retry counters
+        // 初始化超时和重试计数器
+        int currentTimeout = INITIAL_TIMEOUT;
+        int retries = 0;
     }
 
 }
