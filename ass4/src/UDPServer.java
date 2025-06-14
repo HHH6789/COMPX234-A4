@@ -116,7 +116,7 @@ public class UDPServer {
                         // Send the error message packet back to the client
                         // 将错误消息数据包发送回客户端
                         socket.send(sendPacket);
-                        
+
                         continue;
                     }
 
@@ -128,6 +128,14 @@ public class UDPServer {
 
             }
 
+        }
+        // Catch any exceptions that might occur during server operation
+        // 捕获服务器运行期间可能发生的任何异常
+        catch (Exception e) {
+            // Print the error message to standard output
+            // 将错误信息打印到标准输出
+            System.out.println("Server error: " + e.getMessage());
+            e.printStackTrace();
         }
 
     }
