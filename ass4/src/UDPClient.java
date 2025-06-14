@@ -218,10 +218,12 @@ public class UDPClient{
                     // 发送关闭消息并接收服务器对数据连接的响应
                     String closeResponse = sendAndReceive(socket, serverAddress, dataPort, closeMsg);
 
-                    // Check if close response is valid (starts with "FILE" and contains "CLOSE_OK")
-                    // 检查关闭响应是否有效（以"FILE"开头且包含"CLOSE_OK"）
+                    // Check if close response is valid 
+                    // 检查关闭响应是否有效
                     if (closeResponse != null && closeResponse.startsWith("FILE") && closeResponse.contains("CLOSE_OK")) {
-                        
+                        // Print success message if close confirmation is received
+                        // 如果收到关闭确认，打印成功消息
+                        System.out.println("File transfer completed successfully");
                     }
 
                 }
