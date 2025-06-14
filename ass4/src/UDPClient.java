@@ -245,6 +245,15 @@ public class UDPClient{
 
     }
 
+    // Helper method to send a message and receive response with retries
+    // 辅助方法，用于发送消息并在重试机制下接收响应
+    private static String sendAndReceive(DatagramSocket socket, InetAddress address, int port, String message) throws IOException{
+        // Convert message to bytes and create send packet
+        // 将消息转换为字节并创建发送包
+        byte[] sendData = message.getBytes();
+
+    }
+
 }
 
 
