@@ -202,6 +202,10 @@ public class UDPClient{
 
                     }
 
+                    // Print new line after progress indicators
+                    // 在进度指示器后打印新行
+                    System.out.println();
+
                 }
 
             }
