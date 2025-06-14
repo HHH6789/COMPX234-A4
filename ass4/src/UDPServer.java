@@ -108,6 +108,12 @@ public class UDPServer {
                         // Convert the error message string to a byte array for network transmission
                         // 将错误消息字符串转换为字节数组以便网络传输
                         byte[] sendData = errorMsg.getBytes();
+
+                        // Create a UDP packet containing the error message, targeting the client's address and port
+                        // 创建一个包含错误消息的UDP数据包，目标为客户端地址和端口
+                        DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, clientAddress, clientPort);
+
+                        
                     }
 
                     // Start new thread for file transfer
