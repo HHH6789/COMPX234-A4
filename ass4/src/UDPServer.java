@@ -74,7 +74,10 @@ public class UDPServer {
                  // Validate request format
                 // 验证请求格式
                 if (parts.length < 2){
-                    
+                    // Invalid message
+                    //无效消息
+                    continue;
+
                 }
 
             }
