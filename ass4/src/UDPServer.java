@@ -62,6 +62,9 @@ public class UDPServer {
                 // 等待传入的数据包
                 socket.receive(receivePacket);
 
+                // Convert received data to string
+                // 将接收到的数据转换为字符串
+                String request = new String(receivePacket.getData(), 0, receivePacket.getLength()).trim();
 
             }
 
