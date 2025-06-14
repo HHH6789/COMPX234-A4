@@ -192,6 +192,12 @@ public class UDPClient{
                         // 将解码后的二进制数据写入文件
                         raf.write(fileData);
 
+                        // Update the total bytes received counter atomically
+                        // 原子性地更新已接收字节总数
+                        bytesReceived.addAndGet(fileData.length);
+
+
+
                     }
 
                 }
