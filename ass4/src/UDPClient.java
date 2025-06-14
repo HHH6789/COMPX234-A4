@@ -135,7 +135,10 @@ public class UDPClient{
                 // Try-with-resources block to open a RandomAccessFile for reading and writing
                 // 使用try-with-resources语句块打开一个可读写的RandomAccessFile
                 try (RandomAccessFile raf = new RandomAccessFile(outputFile, "rw")) {
-                    
+                    // Atomic counter for received bytes
+                    // 用于记录接收字节数的原子计数器
+                    AtomicInteger bytesReceived = new AtomicInteger(0);
+
                 }
 
             }
