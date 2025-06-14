@@ -323,6 +323,9 @@ public class UDPClient{
                 currentTimeout *= 2;
             }
         }
+        // Return null if max retries exceeded
+        // 如果超过最大重试次数则返回null
+        return null;
 
     }
 
