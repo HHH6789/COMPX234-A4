@@ -313,10 +313,14 @@ public class UDPClient{
                 // Handle other IO errors and retry
                 // 处理其他IO错误并重试
                 retries++;
-                
+
                 // Print error message showing current retry attempt count  
                 // 打印错误消息，显示当前重试次数  
                 System.out.println("Error, retrying (" + retries + ")..."); 
+
+                // Apply exponential backoff by doubling the timeout duration  
+                // 通过加倍超时时间实现指数退避  
+                currentTimeout *= 2;
             }
         }
 
