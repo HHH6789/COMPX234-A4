@@ -24,9 +24,12 @@ public class UDPClient{
         // Check if correct number of arguments are provided
         // 检查参数数量是否正确
         if (args.length != 3) {
+            //print message
+            //输出打印相关信息
+            System.out.println("Usage: java UDPClient <hostname> <port> <filelist>");
+            return;
 
 
-            
         }
     }
 
