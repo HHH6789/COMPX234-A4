@@ -200,6 +200,15 @@ public class UDPServer {
                     // 检查第一部分是否为"FILE"命令且至少包含2个元素:命令和文件名
                     if (parts[0].equals("FILE") && parts.length >= 2){
                         String filename = parts[1];
+
+                        // Handle close request
+                        // 处理关闭请求
+                        if (parts[2].equals("CLOSE")){
+                            
+                        }
+
+
+
                     }
 
 
