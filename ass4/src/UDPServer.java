@@ -212,6 +212,10 @@ public class UDPServer {
                             // 将消息字符串转换为字节数组用于网络传输
                             byte[] closeOkData = closeOkMsg.getBytes();
 
+                            // Create UDP packet with the close acknowledgement, targeting client's address and port
+                            // 创建包含关闭确认的UDP数据包，目标为客户端地址和端口
+                            DatagramPacket closeOkPacket = new DatagramPacket(closeOkData, closeOkData.length, clientAddress, clientPort);
+
 
                         }
 
