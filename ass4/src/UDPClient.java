@@ -60,6 +60,11 @@ public class UDPClient{
                 filename = filename.trim();
 
 
+                // Skip this iteration if the filename is empty after trimming (blank line in file list)
+                // 如果文件名在去除空白后为空（文件列表中的空行），则跳过当前循环
+                if (filename.isEmpty()) continue;
+
+
 
             }
 
