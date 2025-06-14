@@ -296,6 +296,10 @@ public class UDPClient{
                     // Increment the retry counter
                     // 增加重试计数器
                     retries++;
+
+                    // Notify user about the timeout and retry attempt
+                    // 通知用户超时及重试尝试
+                    System.out.println("Timeout, retrying (" + retries + ")...");
                 }
 
             }
