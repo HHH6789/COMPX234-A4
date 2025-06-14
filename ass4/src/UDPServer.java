@@ -87,6 +87,10 @@ public class UDPServer {
                     // Extract the filename from the request parts
                     // 从请求部分中提取文件名
                     String filename = parts[1];
+
+                    // Create a File object representing the requested file
+                    // 创建一个表示请求文件的File对象
+                    File file = new File(filename);
                     
                 }
 
