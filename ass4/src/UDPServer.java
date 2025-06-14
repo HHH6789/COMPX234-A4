@@ -15,4 +15,8 @@ public class UDPServer {
     // 数据传输的最大端口号
     private static final int MAX_DATA_PORT = 51000;
 
+    // Maximum block size for file transfer
+    // 文件传输的最大块大小
+    private static final int MAX_BLOCK_SIZE = 1000;
+
 }
