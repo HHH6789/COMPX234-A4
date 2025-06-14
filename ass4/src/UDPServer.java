@@ -264,6 +264,14 @@ public class UDPServer {
                                 // 准备包含文件数据的响应
                                 String response = String.format("FILE %s OK START %d END %d DATA %s", filename, start, start + bytesRead - 1, base64Data);
 
+                                // Convert the response string to a byte array for network transmission
+                                // 将响应字符串转换为字节数组以便网络传输
+                                byte[] responseData = response.getBytes();
+
+                                // Create a UDP packet containing the response data with client address and port
+                                // 创建包含响应数据的UDP数据包，指定客户端地址和端口
+                                DatagramPacket responsePacket = new DatagramPacket(responseData, responseData.length, clientAddress, clientPort);
+
                             }
 
                           
