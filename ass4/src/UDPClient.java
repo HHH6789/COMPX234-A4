@@ -153,6 +153,12 @@ public class UDPClient{
                         // Send block request and get response
                         // 发送块请求并获取响应
                         String blockResponse = sendAndReceive(socket, serverAddress, dataPort, blockRequest);
+
+                        // Check if the block response is null 
+                        // 检查块响应是否为null
+                        if (blockResponse == null){
+
+                        }
                     }
 
                 }
