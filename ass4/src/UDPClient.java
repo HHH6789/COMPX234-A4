@@ -55,6 +55,9 @@ public class UDPClient{
             // Read each filename from the file list
             // 从文件列表中逐行读取文件名
             while ((filename = fileListReader.readLine()) != null){
+                // Trim any leading or trailing whitespace from the filename read from the file list
+                // 去除从文件列表中读取的文件名首尾的空白字符
+                filename = filename.trim();
 
 
 
