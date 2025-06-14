@@ -247,6 +247,10 @@ public class UDPServer {
                             // 将文件指针移动到指定的起始位置
                             raf.seek(start);
 
+                            // Read the requested block of data from file into the buffer
+                            // 从文件中读取请求的数据块到缓冲区
+                            int bytesRead = raf.read(fileData);
+
                           
                         }
 
