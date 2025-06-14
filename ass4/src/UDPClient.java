@@ -102,6 +102,15 @@ public class UDPClient{
 
                 }
 
+                // Validate response starts with OK
+                // 验证响应是否以OK开头
+                if (!parts[0].equals("OK")){
+                    // Print an error message indicating an invalid response from the server  
+                    // 打印错误信息，提示从服务器接收到无效的响应  
+                    System.out.println("Invalid response: " + response);  
+                    continue;
+                }
+
             }
 
         }
