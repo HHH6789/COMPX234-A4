@@ -95,7 +95,11 @@ public class UDPClient{
                 // Check if the first part of the response indicates an error ("ERR")
                 // 检查响应第一部分是否为错误标识 ("ERR")
                 if (parts[0].equals("ERR")){
-                    
+                    // Print the server error message with the full response
+                    // 打印服务器错误信息（包含完整响应）
+                    System.out.println("Server error: " + response);
+                    continue;
+
                 }
 
             }
