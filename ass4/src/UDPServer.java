@@ -3,6 +3,7 @@
 import java.io.File;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+import java.net.InetAddress;
 import java.util.Random;
 
 // Main server class for UDP file transfers
@@ -91,6 +92,10 @@ public class UDPServer {
                     // Create a File object representing the requested file
                     // 创建一个表示请求文件的File对象
                     File file = new File(filename);
+
+                    // Get the client's IP address from the received packet
+                    // 从接收到的数据包中获取客户端的IP地址
+                    InetAddress clientAddress = receivePacket.getAddress();
                     
                 }
 
