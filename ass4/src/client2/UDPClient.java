@@ -74,6 +74,7 @@ public class UDPClient{
 
                 // Send the DOWNLOAD request to the server and wait for the response
                 //向服务器发送DOWNLOAD请求并等待响应
+                System.out.println("Sending DOWNLOAD request for: " + filename);
                 String response = sendAndReceive(socket, serverAddress, port, downloadMsg);
 
                 // Check if the response is null
