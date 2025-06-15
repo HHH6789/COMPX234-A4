@@ -1,10 +1,12 @@
 // Import necessary Java libraries
 // 导入必要的Java库
 import java.io.File;
+import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.Random;
 
@@ -28,119 +30,56 @@ public class UDPServer {
 
      // Main method to start the server
     // 启动服务器的主方法
-    public static void main(String[] args){
-        // Check for correct command line arguments
-        // 检查命令行参数是否正确
-        if (args.length != 1) {
-            //output "Usage: java UDPServer <port>"
-            //输出
-            System.out.println("Usage: java UDPServer <port>");
-            return;
+    public static void main(String[] args)throws IOException{
+        // Create a UDP socket bound to port 51234
+        // 创建一个绑定到51234端口的UDP套接字
+        DatagramSocket socket = new DatagramSocket(51234);
+        // Print server startup message
+        // 打印服务器启动信息
+        System.out.println("Server started on port 51234");
+
+        // Create a buffer to store incoming data
+        // 创建一个缓冲区来存储接收到的数据
+        byte[] buffer = new byte[1024];
 
 
-        }
-        // Parse port number from arguments
-        // 从参数中解析端口号
-        int port = Integer.parseInt(args[0]);
+        // Main server loop to continuously handle client requests
+        // 服务器主循环，持续处理客户端请求
+        while (true) {
+            // Print waiting message
+            // 打印等待消息
+            System.out.println("Waiting for client data...");
+            // Create a packet to receive data
+            // 创建一个数据包来接收数据
+            DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
+            // Block until a packet is received
+            // 阻塞直到接收到数据包
+            socket.receive(packet);
 
-        // Create UDP socket and handle exceptions
-        // 创建UDP套接字并处理异常
-        try (DatagramSocket socket = new DatagramSocket(port)){
-            //打印服务器启动信息，显示监听的端口号
-            // Print server startup information, displaying the port being listened on
-            System.out.println("Server started on port " + port);
+            // Convert received bytes to UTF-8 string
+            // 将接收到的字节转换为UTF-8字符串
+            String received = new String(packet.getData(), 0, packet.getLength(), StandardCharsets.UTF_8);
+            // Print received message with client info
+            // 打印接收到的消息及客户端信息
+            System.out.println("Received from client (" + packet.getAddress() + ":" + packet.getPort() + "): " + received);
 
-            // Buffer for incoming data
-            // 接收数据的缓冲区
-            byte[] receiveData = new byte[1024];
+            // 假设服务器只是把接收到的内容原样返回
+            String response = "Server received: " + received;
+            // Convert response string to bytes using UTF-8
+            // 将响应字符串转换为UTF-8字节数组
+            byte[] responseData = response.getBytes(StandardCharsets.UTF_8);
+            
+            // Create response packet with client address and port
+            // 创建响应数据包（包含客户端地址和端口）
+            DatagramPacket responsePacket = new DatagramPacket(responseData, responseData.length,packet.getAddress(), packet.getPort());
 
+            // Send the response back to client
+            // 将响应发送回客户端
+            socket.send(responsePacket);
 
-            // Main server loop
-            // 服务器主循环
-            while (true){
-                // Prepare packet for receiving data
-                // 准备接收数据的包
-                DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
-
-                // Wait for incoming packet
-                // 等待传入的数据包
-                socket.receive(receivePacket);
-
-                // Convert received data to string
-                // 将接收到的数据转换为字符串
-                String request = new String(receivePacket.getData(), 0, receivePacket.getLength()).trim();
-
-
-                // Split request into parts
-                // 将请求拆分为多个部分
-                String[] parts = request.split(" ");
-
-                 // Validate request format
-                // 验证请求格式
-                if (parts.length < 2){
-                    // Invalid message
-                    //无效消息
-                    continue;
-
-                }
-
-                // Handle DOWNLOAD request
-                // 处理DOWNLOAD请求
-                if (parts[0].equals("DOWNLOAD")){
-                    // Extract the filename from the request parts
-                    // 从请求部分中提取文件名
-                    String filename = parts[1];
-
-                    // Create a File object representing the requested file
-                    // 创建一个表示请求文件的File对象
-                    File file = new File(filename);
-
-                    // Get the client's IP address from the received packet
-                    // 从接收到的数据包中获取客户端的IP地址
-                    InetAddress clientAddress = receivePacket.getAddress();
-                    int clientPort = receivePacket.getPort();
-
-                    // Check if file exists
-                    // 检查文件是否存在
-                    if (!file.exists() || !file.isFile()){
-                        // Send error message if file not found
-                        // 如果文件不存在则发送错误消息
-                        String errorMsg = "ERR " + filename + " NOT_FOUND";
-
-                        // Convert the error message string to a byte array for network transmission
-                        // 将错误消息字符串转换为字节数组以便网络传输
-                        byte[] sendData = errorMsg.getBytes();
-
-                        // Create a UDP packet containing the error message, targeting the client's address and port
-                        // 创建一个包含错误消息的UDP数据包，目标为客户端地址和端口
-                        DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, clientAddress, clientPort);
-
-                        // Send the error message packet back to the client
-                        // 将错误消息数据包发送回客户端
-                        socket.send(sendPacket);
-
-                        continue;
-                    }
-
-                    //Add port allocation log
-                    // 添加线程启动日志
-                    System.out.println("[Server] Starting new thread for file: " + filename + " (Client: " + clientAddress + ":" + clientPort + ")");
-                    // Start new thread for file transfer
-                    // 启动新线程处理文件传输
-                    new Thread(() -> handleFileTransfer(file, clientAddress, clientPort)).start();
-                    
-                }
-
-            }
-
-        }
-        // Catch any exceptions that might occur during server operation
-        // 捕获服务器运行期间可能发生的任何异常
-        catch (Exception e) {
-            // Print the error message to standard output
-            // 将错误信息打印到标准输出
-            System.out.println("Server error: " + e.getMessage());
-            e.printStackTrace();
+            // Print sent response for debugging
+            // 打印已发送的响应（用于调试）
+            System.out.println("Response sent: " + response);
         }
 
     }
@@ -148,12 +87,27 @@ public class UDPServer {
     // Method to handle file transfer with client
     // 处理与客户端的文件传输的方法
     private static void handleFileTransfer(File file, InetAddress clientAddress, int clientPort){
+        // 获取当前线程ID
+        long threadId = Thread.currentThread().getId();
+    
+        // 添加线程开始日志
+        System.out.printf("[%tT] [线程-%d] 开始处理文件 %s (客户端: %s:%d)%n",
+        System.currentTimeMillis(), threadId, file.getName(), clientAddress, clientPort);
+
+        synchronized (System.out) {
+        System.out.printf("[%tT] [线程-%d] 开始处理文件 %s (客户端: %s:%d)%n",System.currentTimeMillis(), threadId, file.getName(), clientAddress, clientPort);
+        System.out.flush();
+        }
+
         try {
 
             
             // Select random port for data transfer
             // 为数据传输选择随机端口
             int dataPort = MIN_DATA_PORT + random.nextInt(MAX_DATA_PORT - MIN_DATA_PORT + 1);
+
+             // 添加端口分配日志
+            System.out.printf("[%tT] [线程-%d] 为文件 %s 分配端口: %d%n",System.currentTimeMillis(), threadId, file.getName(), dataPort);
 
             //Add port allocation log
             //添加端口分配日志
@@ -306,10 +260,18 @@ public class UDPServer {
             dataSocket.close();
 
         } catch (Exception e) {
-            // Print a user-friendly error message to standard output
-            // 向标准输出打印用户友好的错误信息
-            System.err.println("[Server] Thread error for " + file.getName() + ": " + e.getMessage());
+            // +++ 改进：异常日志同步输出 +++
+            synchronized (System.err) {
+            System.err.printf("[%tT] [线程-%d] 处理文件 %s 时出错: %s%n",System.currentTimeMillis(), threadId, file.getName(), e.getMessage());
             e.printStackTrace();
+            System.err.flush();
+            }
+        }finally {
+            // +++ 确保线程结束日志输出 +++
+            synchronized (System.out) {
+                System.out.printf("[%tT] [线程-%d] 文件 %s 传输完成%n",System.currentTimeMillis(), threadId, file.getName());
+                System.out.flush();
+            }
         }
     }
 
