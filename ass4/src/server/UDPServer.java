@@ -122,6 +122,9 @@ public class UDPServer {
                         continue;
                     }
 
+                    //Add port allocation log
+                    // 添加线程启动日志
+                    System.out.println("[Server] Starting new thread for file: " + filename + " (Client: " + clientAddress + ":" + clientPort + ")");
                     // Start new thread for file transfer
                     // 启动新线程处理文件传输
                     new Thread(() -> handleFileTransfer(file, clientAddress, clientPort)).start();
