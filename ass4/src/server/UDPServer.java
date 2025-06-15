@@ -146,9 +146,17 @@ public class UDPServer {
     // 处理与客户端的文件传输的方法
     private static void handleFileTransfer(File file, InetAddress clientAddress, int clientPort){
         try {
+
+            
             // Select random port for data transfer
             // 为数据传输选择随机端口
             int dataPort = MIN_DATA_PORT + random.nextInt(MAX_DATA_PORT - MIN_DATA_PORT + 1);
+
+            //Add port allocation log
+            //添加端口分配日志
+            
+            System.out.println("[Server] Thread for file " + file.getName() + " using data port: " + dataPort + " (Client: " + clientAddress + ":" + clientPort + ")");
+
 
             // Create socket for data transfer
             // 创建用于数据传输的套接字
@@ -297,7 +305,7 @@ public class UDPServer {
         } catch (Exception e) {
             // Print a user-friendly error message to standard output
             // 向标准输出打印用户友好的错误信息
-            System.out.println("File transfer error: " + e.getMessage());
+            System.err.println("[Server] Thread error for " + file.getName() + ": " + e.getMessage());
             e.printStackTrace();
         }
     }
